@@ -1,25 +1,29 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from '../Button'
 import './ItemCount.css'
+import { ItemList } from '../ItemList'
 
 export const ItemCount = () => {
-    const [contador, setCount] = useState(1)
+    const [count, setCount] = useState(1)
 
-    const restar = () => {
+    const restar = () =>{
         console.log("se esta ejecutando restar")
-        setCount(contador - 1)
+        setCount(count - 1)
     }
-
-    const sumar = () => {
+    
+    const sumar  = ()=> {
         console.log("se esta ejecutando sumar")
-        setCount(contador + 1)
+        setCount(count + 1)
     }
-
+    
     return (
-        <div>
-            <Button color="red" texto="-" funcion={restar} />
-            <p>{contador}</p>
-            <Button color="green" texto="+" funcion={sumar} />
+        <div className='container'>
+            <Button variant='primary' onClick={restar} >  -   </Button> 
+            <p>{count}</p>
+            <Button color="green" funcion={sumar} >
+              <ItemList/>
+              +
+            </Button>
         </div>
     )
 }

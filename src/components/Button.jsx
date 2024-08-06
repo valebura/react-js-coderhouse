@@ -1,11 +1,7 @@
 import React from 'react'
 
-export const Button = ({texto, color}) => {
-    // const showAlert = () => {
-    //     alert('Compra realizada!');
-    // };
-
+export const Button = ({props}) => {
     return (
-        <button className={`button-${color}`}>{texto}</button>
+        <button style={{backgroundColor: props.color}} onClick={props.funcion} > {props.children}</button>
     )
 }
