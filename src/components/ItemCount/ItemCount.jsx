@@ -18,7 +18,7 @@ export const ItemCount = () => {
     
     return (
         <div className='container'>
-            <Button variant='primary' onClick={restar} >  -   </Button> 
+            <Button variant='primary' onClick={restar} >  -  </Button> 
             <p>{count}</p>
             <Button color="green" funcion={sumar} >
               <ItemList/>
