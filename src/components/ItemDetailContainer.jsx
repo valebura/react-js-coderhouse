@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProductById } from '../asyncmock'
 import ItemDetail from './ItemDetail'
+import { db } from '../services/firebaseConfig'
+import { getDoc, doc} from 'firebase/firestore'
 
 export const ItemDetailContainer = () => {
   
@@ -9,17 +11,14 @@ export const ItemDetailContainer = () => {
   const [cargando, setCargando] = useState(true)
   const { id } = useParams()
 
-  useEffect(()=>{ 
+  useEffect(() => {
     setCargando(true)
-
-    getProductById(id)
-    .then(res => {
-      setProd(res)
-      setCargando(false)
-  })
+    const productRef = doc(db, "products", id)
+    getDoc(productRef).then(snapshot => {
+      setProd(snapshot.data())      
+    }).finally(setCargando(false))
+    
   }, [id])
-
-  console.log(id)
 
   if (cargando) {
     return (

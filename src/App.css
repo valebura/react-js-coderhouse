@@ -138,10 +138,10 @@ button a {
 
 .dark{
     background-color: rgb(48, 49, 50);
-    color: beige;
+    color: white;
 }
 
 .light{
-    background-color: beige;
+    background-color: white;
     color: rgb(48, 49, 50);
 }

@@ -24,7 +24,7 @@ export function App() {
           <NavBar/>
           <Routes>
             <Route path='/' element={ <ItemListContainer greeting="hola" />}/>
-            <Route path='/categoria/:categoria' element={ <ItemListContainer greeting="hola" />}/>
+            <Route path='/category/:category' element={ <ItemListContainer greeting="hola" />}/>
             <Route path='/detalle/:id' element={<ItemDetailContainer/>} />
             <Route path='/cart' element={<Cart/>} />
             <Route path='*' element={<div className='container text-center'><h1><b>404</b><br/>Page Not Found</h1></div>} /> 

@@ -15,28 +15,28 @@ export const NavBar = () => {
           <h2>HardwareZone</h2>
         </Link>
         <div className='nav-categories'>
-          <Link to='/categoria/procesadores'>Procesadores</Link>
-          <Link to='/categoria/placas'>Placas de Video</Link>
-          <Link to='/categoria/memorias'>Memorias</Link>
+          <Link to='/category/procesadores'>Procesadores</Link>
+          <Link to='/category/placas'>Placas de Video</Link>
+          <Link to='/category/memorias'>Memorias</Link>
           <h3>{mensajito}</h3>
           <button onClick={()=>setDarkTheme(!darkTheme)}>cambiar theme</button>
-          <a href="#" title='Carrito'><CartWidget/></a>          
+          <CartWidget/>    
         </div>
     </nav>
   )
-  // return (
-  //   <nav>
-  //       <a href="#" title='HardwareZone'>
-  //           <h2>HardwareZone</h2>
-  //       </a>
-  //       <div className='nav-categories'>
-  //           <a href="#" className='categories' title='Procesadores'>Procesadores</a>
-  //           <a href="#" className='categories' title='Placas de Video'>Placas de Video</a>
-  //           <a href="#" className='categories' title='Memorias'>Memorias</a>
-  //           <a href="#" title='Carrito'>
-  //               <CartWidget/>
-  //           </a>
-  //       </div>
-  //   </nav>
-  // )
 }
+// return (
+//   <nav>
+//       <a href="#" title='HardwareZone'>
+//           <h2>HardwareZone</h2>
+//       </a>
+//       <div className='nav-categories'>
+//           <a href="#" className='categories' title='Procesadores'>Procesadores</a>
+//           <a href="#" className='categories' title='Placas de Video'>Placas de Video</a>
+//           <a href="#" className='categories' title='Memorias'>Memorias</a>
+//           <a href="#" title='Carrito'>
+//               <CartWidget/>
+//           </a>
+//       </div>
+//   </nav>
+// )

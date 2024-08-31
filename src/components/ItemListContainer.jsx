@@ -3,25 +3,35 @@ import { useParams } from 'react-router-dom'
 import { Button } from './Button'
 import { getProducts } from '../asyncmock'
 import { ItemList } from './ItemList'
+import { db } from '../services/firebaseConfig'
+import { getDocs, collection, query, where } from 'firebase/firestore'
 
 export const ItemListContainer = ({greeting}) => {
-  const [items , setItems] = useState([])
-  const [cargando , setCargando ] = useState(true)
-  const { categoria } = useParams()
+  const [items, setItems] = useState([])
+  const [cargando, setCargando] = useState(true)
+  const { category } = useParams()
  
   useEffect(() => {
-    setCargando(true)
-    if(categoria) {
-      getProducts().then(prods => setItems(prods.filter(e => e.categoria === categoria)))
-      .catch(err => err)
-      .finally(() => setCargando(false))
-    }else{
-      getProducts().then(prods => setItems(prods))
-      .catch(err => err)
-      .finally(() => setCargando(false))
+    // setCargando(true)
+    if (category) {
+      const productsXCat = query(collection(db, "products"), where("category", "==", category))
+      getDocs(productsXCat).then(snapshot => {
+        const prods = snapshot.docs.map(doc => {
+          const data = doc.data()
+          return { id: doc.id, ...data }
+        })
+        setItems(prods)
+      }).finally(setCargando(false))
+    } else {
+      getDocs(collection(db, "products")).then(snapshot => {
+        const prods = snapshot.docs.map(doc => {
+          const data = doc.data()
+          return { id: doc.id, ...data }
+        })
+        setItems(prods)
+      }).finally(setCargando(false))
     }
-
-  }, [categoria])
+  }, [category])
 
   if(cargando){
     return (
@@ -32,7 +42,7 @@ export const ItemListContainer = ({greeting}) => {
   }
   
   return (
-    <div className='catalog container'>
+    <div className='container m-auto grid grid-cols-3 gap-5'>
       <ItemList items={items}/>
     </div>
   )

@@ -9,7 +9,7 @@ const Cart = () => {
         <div>
         {cart.map(e=> {
             return (
-            <CartItem key={e.id} producto={e}/>
+            <CartItem key={e.id} product={e}/>
             )
         })}
         <button onClick={clearCart}>Vaciar carrito</button>
