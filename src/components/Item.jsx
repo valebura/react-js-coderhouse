@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ItemCount } from './ItemCount/ItemCount'
 import { Button } from './Button'
-import ItemDetailContainer from './ItemDetailContainer'
 
 export const Item = ({producto}) => {
   const [isVisible, setIsVisible] = useState(false)
@@ -25,10 +24,7 @@ export const Item = ({producto}) => {
           <Button color="red" funcion={mostrarDetalles}> 
             Ver Detalles
           </Button>
-        </Link>         
-        {
-          isVisible ? <ItemDetailContainer id={producto.id} /> : <p className='mt-3'>Disponible</p>
-        }
+        </Link>
     </div>
   )
 }

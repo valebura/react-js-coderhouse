@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CartWidget } from './CartWidget'
+import { CartContext } from '../context/CartContext'
+import { ThemeContext } from '../context/ThemeContext'
 
 export const NavBar = () => {
+  
+  const {mensajito} = useContext(CartContext)
+  const {darkTheme ,setDarkTheme} = useContext(ThemeContext)
+
   return (
     <nav>
         <Link to="/">
@@ -12,6 +18,8 @@ export const NavBar = () => {
           <Link to='/categoria/procesadores'>Procesadores</Link>
           <Link to='/categoria/placas'>Placas de Video</Link>
           <Link to='/categoria/memorias'>Memorias</Link>
+          <h3>{mensajito}</h3>
+          <button onClick={()=>setDarkTheme(!darkTheme)}>cambiar theme</button>
           <a href="#" title='Carrito'><CartWidget/></a>          
         </div>
     </nav>
