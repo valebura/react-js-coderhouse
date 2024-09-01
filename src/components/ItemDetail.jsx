@@ -15,19 +15,26 @@ const ItemDetail = ({prod}) => {
     }
     
     const handleAddToCart = (cant) =>{
-        const prodConCantidad = {...prod, cantidad: cant}
+        const prodConCantidad = {...prod, quantity: cant}
         addToCart(prodConCantidad)
     }
     
-    console.log(prod);
     return (
-        <div className='product-card'>      
-            <h3>{prod.name}</h3>
-            <h5><b>${prod.price}</b></h5>
-            <img className='product-image' src={prod.image} alt="" />
-            <button className='button-red' onClick={mostrarSiguiente}>Siguiente</button>
-            <button className='button-red' onClick={mostrarAnterior}>Anterior</button>
-            <ItemCount handleAddToCart={handleAddToCart}/>
+        <div>
+            <div className='flex flex-row justify-between'>
+                <div>
+                    <h3 className='text-3xl font-extrabold text-gray-900 mb-2'>{prod.name}</h3>
+                    <h3 className='text-2xl font-extrabold text-sky-900 mb-2'><b>${prod.price}</b></h3>
+                </div>
+                <div>                    
+                    <ItemCount handleAddToCart={handleAddToCart}/>
+                </div>
+            </div>
+            <div>
+                <img className='w-auto' src={prod.image} alt="" />
+            </div>
+            {/* <button className='button-red' onClick={mostrarSiguiente}>Siguiente</button>
+            <button className='button-red' onClick={mostrarAnterior}>Anterior</button> */}
         </div>
     )
 }

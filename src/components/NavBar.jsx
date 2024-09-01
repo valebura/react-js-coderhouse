@@ -12,31 +12,15 @@ export const NavBar = () => {
   return (
     <nav>
         <Link to="/">
-          <h2>HardwareZone</h2>
+          <h2 className='text-3xl font-bold'>HardwareZone</h2>
         </Link>
-        <div className='nav-categories'>
-          <Link to='/category/procesadores'>Procesadores</Link>
-          <Link to='/category/placas'>Placas de Video</Link>
-          <Link to='/category/memorias'>Memorias</Link>
-          <h3>{mensajito}</h3>
-          <button onClick={()=>setDarkTheme(!darkTheme)}>cambiar theme</button>
+        <div className='flex space items-center justify-between text-white font-bold'>
+          <Link to='/category/procesadores' className='mx-3 hover:text-red-500'>Procesadores</Link>
+          <Link to='/category/placas' className='mx-3 hover:text-red-500'>Placas de Video</Link>
+          <Link to='/category/memorias' className='mx-3 hover:text-red-500'>Memorias</Link>
+          <button className='mr-3 hover:text-red-500' onClick={()=>setDarkTheme(!darkTheme)}>TEMA</button>
           <CartWidget/>    
         </div>
     </nav>
   )
 }
-// return (
-//   <nav>
-//       <a href="#" title='HardwareZone'>
-//           <h2>HardwareZone</h2>
-//       </a>
-//       <div className='nav-categories'>
-//           <a href="#" className='categories' title='Procesadores'>Procesadores</a>
-//           <a href="#" className='categories' title='Placas de Video'>Placas de Video</a>
-//           <a href="#" className='categories' title='Memorias'>Memorias</a>
-//           <a href="#" title='Carrito'>
-//               <CartWidget/>
-//           </a>
-//       </div>
-//   </nav>
-// )

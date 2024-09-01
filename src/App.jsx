@@ -11,6 +11,8 @@ import Cart from './components/Cart'
 import { CartContextProvider } from './context/CartContext'
 import { useContext } from 'react'
 import { ThemeContext } from './context/ThemeContext'
+import Checkout from './components/Checkout'
+import Success from './components/Success';
 
 export function App() {
 
@@ -27,6 +29,8 @@ export function App() {
             <Route path='/category/:category' element={ <ItemListContainer greeting="hola" />}/>
             <Route path='/detalle/:id' element={<ItemDetailContainer/>} />
             <Route path='/cart' element={<Cart/>} />
+            <Route path='/checkout' element={<Checkout/>}/>
+            <Route path="/success" element={<Success />} />
             <Route path='*' element={<div className='container text-center'><h1><b>404</b><br/>Page Not Found</h1></div>} /> 
           </Routes>
         </BrowserRouter> 

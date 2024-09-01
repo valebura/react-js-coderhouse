@@ -7,7 +7,7 @@ export const ItemList = ( {items} ) => {
     <>
        {items?.map( (e) => {
         return (
-          <div className='rid grid-cols-4'>
+          <div>
             <Item key={e.id} product={e} />
           </div>
         )

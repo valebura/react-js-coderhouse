@@ -15,13 +15,13 @@ export const Item = ({product}) => {
   };
 
   return (
-    <div className='flex flex-col rounded p-4 border-solid border-2 border-red-700 items-center justify-between'>
-        <h4>{product.name}</h4>
-        <h5><b>${product.price.toLocaleString('es-AR')}</b></h5>
-        <p className='product-category'>{capitalizeFirstLetter(product.category)}</p>
-        <img className='product-image w-auto max-h-52' src={product.image} alt="" />
+    <div className='flex flex-col rounded p-4 border-solid border-2 border-red-700 items-center justify-between text-center'>
+        <h4 className='text-2xl font-bold text-gray-900 mb-2'>{product.name}</h4>
+        <h5 className='text-xl font-bold text-sky-900 mb-2'><b>${product.price.toLocaleString('es-AR')}</b></h5>
+        <p className='font-bold text-red-600 mb-3'>{capitalizeFirstLetter(product.category)}</p>
+        <img className='w-auto max-h-52' src={product.image} alt="" />
         <Link to={`/detalle/${product.id}`}>
-          <Button color="red" funcion={mostrarDetalles}> 
+          <Button color="gray" funcion={mostrarDetalles}> 
             Ver Detalles
           </Button>
         </Link>
